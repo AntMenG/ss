@@ -6,19 +6,9 @@
         </div>
     </div>
     
-    <script>
-        $(function () {
-            var find = $("#find").html();
-            var txt = "";
-            for (let i = 0; i < 11; i++) {
-                txt += find;                                
-            }
-            $("#find").html(txt);
-        });
-    </script>
-
     <div id="find">
 
+        {% for i in 'xxxxxxxxxxxxxxx' %}
         <div class="target">
             <div class="item-left">
                 <img src="https://i.pinimg.com/originals/d1/b5/13/d1b51337c425f76db1874359d012db41.jpg">
@@ -39,6 +29,7 @@
                 <button class="carDatos">CARGAR DATOS</button>
             </div>
         </div>
+        {% endfor %}
 
     </div>
 </section>
