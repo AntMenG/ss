@@ -1,0 +1,44 @@
+<section id="BusExpP">
+    <div id="head">
+        <div id="finder">
+            <span>BUSCA RFC</span>
+            <input type="text" name="" placeholder="Escribe el RFC del personal a buscar">
+        </div>
+    </div>
+    
+    <script>
+        $(function () {
+            var find = $("#find").html();
+            var txt = "";
+            for (let i = 0; i < 11; i++) {
+                txt += find;                                
+            }
+            $("#find").html(txt);
+        });
+    </script>
+
+    <div id="find">
+
+        <div class="target">
+            <div class="item-left">
+                <img src="https://i.pinimg.com/originals/d1/b5/13/d1b51337c425f76db1874359d012db41.jpg">
+                <div class="e-status">
+                    <div class="text true">Expediente</div>
+                    <div class="ico true"></div>
+                </div>
+            </div>
+            <div class="item-right">
+                <span class="target-text">
+                    <h5>Nombre</h5>
+                    Jessica Hernández Ferrer
+                    <h5>Curp</h5>
+                    HEGJ951218NNR00
+                    <h5>Teléfono</h5>
+                    5569012712
+                </span>
+                <button class="carDatos">CARGAR DATOS</button>
+            </div>
+        </div>
+
+    </div>
+</section>

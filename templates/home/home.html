@@ -26,11 +26,63 @@
             <button>SALIR</button>
         </section>
         <section id="menu">
-            <button class="<!--active-->">Buscar Expediente</button>
-            <button>Publicar Expediente</button>
-            <button>Historial</button>
+            <button data-panel="#BusExpP" class="<!--active-->">Buscar Expediente</button>
+            <button data-panel="#PubExpP">Publicar Expediente</button>
+            <button data-panel="#HisP">Historial</button>
         </section>
     </header>
+
+    <div id="pContent">
+    
+        <section id="center">
+            <h3>AVANCE DEL ESCANEO DE EXPEDIENTES</h3>
+            <p>Resumen de los últimos 6 días de publicación de espedientes</p>
+        
+            <div class="chart-container" style="position: relative; height:220px; width:100%">
+                <canvas id="myChart" style="height: 220px;"></canvas>
+            </div>
+            <script>
+                var ctx = document.getElementById("myChart").getContext('2d');
+                ctx.height = 100;
+                let chart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        datasets: [{
+                            label: 'Avance',
+                            data: [3000, 2500, 3120, 3000, 3321, 3100],
+                            backgroundColor: 'rgba( 157, 36, 73, 0.5)',
+                            borderColor: 'rgba( 157, 36, 73, 0.9)',
+                        }],
+                        labels: [
+                            '10/12/2018', 
+                            '11/12/2018', 
+                            '12/12/2018', 
+                            '13/12/2018',
+                            '14/12/2018',
+                            '15/12/2018'
+                        ]
+                    },
+                    options: {
+                        tooltips: {
+                            backgroundColor: 'rgb(83, 20, 40)'
+                        },
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    suggestedMin: 50,
+                                    suggestedMax: 100
+                                }
+                            }]
+                        }
+                    }
+                });
+            </script>
+        </section>
+    
+    </div>
+
     <section id="actions">
         <section id="acHeader">
             <button class="closeA"></button>
@@ -41,51 +93,7 @@
         </section>
         <section id="actions-space">
 
-            <section id="BusEP">
-                <div id="head">
-                    <div id="finder">
-                        <span>BUSCA RFC</span>
-                        <input type="text" name="" placeholder="Escribe el RFC del personal a buscar">
-                    </div>
-                </div>
-                
-                <script>
-                    $(function () {
-                        var find = $("#find").html();
-                        var txt = "";
-                        for (let i = 0; i < 11; i++) {
-                            txt += find;                                
-                        }
-                        $("#find").html(txt);
-                    });
-                </script>
-
-                <div id="find">
-
-                    <div class="target">
-                        <div class="item-left">
-                            <img src="https://i.pinimg.com/originals/d1/b5/13/d1b51337c425f76db1874359d012db41.jpg">
-                            <div class="e-status">
-                                <div class="text true">Expediente</div>
-                                <div class="ico true"></div>
-                            </div>
-                        </div>
-                        <div class="item-right">
-                            <span class="target-text">
-                                <h5>Nombre</h5>
-                                Jessica Hernández Ferrer
-                                <h5>Curp</h5>
-                                HEGJ951218NNR00
-                                <h5>Teléfono</h5>
-                                5569012712
-                            </span>
-                            <button class="carDatos">CARGAR DATOS</button>
-                        </div>
-                    </div>
-
-                </div>
-
-            </section>
+            {% include 'home/partials/BusExpP.html' %}
 
         </section>
     </section>

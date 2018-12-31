@@ -17,6 +17,10 @@ h1, h2, h3 {
     font-family: "GMX";
 }
 
+.blur {
+    filter: blur(8px);
+}
+
 #space {
     top: 0px;
     left: 0px;

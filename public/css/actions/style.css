@@ -1,3 +1,35 @@
+#pContent {
+    top: 0px;
+    left: 220px;
+    height: 100%;
+    display: flex;
+    overflow: auto;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% - 220px);
+}
+
+#pContent::before {
+    background: url(../img/background/blanco.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#pContent h3 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: rgb(157, 36, 73);
+}
+
+#pContent p {
+    color: #621132;
+}
+
+#pContent #center {
+    width: 70%;
+}
+
 #actions {
     top: 0px;
     left: 220px;
