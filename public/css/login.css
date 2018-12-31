@@ -1,0 +1,139 @@
+#space {
+    filter: blur(8px);
+}
+
+#pLogin {
+    top: 0px;
+    left: 0px;
+    width: 420px;
+    height: 100%;
+    z-index: 900;
+    position: absolute;
+}
+
+#pLogin::before,
+#pContent::before {
+    top: 0px;
+    left: 0px;
+    opacity: 0.9;
+    z-index: -1;
+    width: 100%;
+    content: "";
+    height: 100%;
+    position: absolute;
+    background: url(../img/background/vino.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#pLogin > img {
+    width: 60%;
+    display: block;
+    margin: auto auto;
+    margin-top: 20px;
+}
+
+#login {
+    top: 50%;
+    left: 0px;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    transform: translateY(-50%);
+}
+
+#login h2 {
+    width: 70%;
+    display: block;
+    font-size: 20px;
+    margin: auto auto;
+    margin-top: 18px;
+    text-align: center;
+    color: rgb( 255, 255, 255);
+    text-shadow: 2px 2px 6px rgb(83, 20, 40);
+}
+
+#login input[type="text"],
+#login input[type="password"],
+#login input[type="submit"] {
+    width: 60%;
+    height: 34px;
+    outline: none;
+    display: block;
+    font-size: 14px;
+    margin: auto auto;
+    margin-top: 20px;
+    font-weight: bold;
+    border: solid 0px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 3px 3px;
+    color: rgb(157, 36, 73);
+    border: solid 1px rgb(83, 20, 40);
+    box-shadow: 2px 2px 6px rgb(83, 20, 40);
+}
+
+#login input[type="submit"] {
+    width: auto;
+    cursor: pointer;
+    padding-left: 10px;
+    font-family: "GMX";
+    padding-right: 10px;
+    box-sizing: content-box;
+    background: rgb(157, 36, 73);
+    color: rgba( 255, 255, 255, 0.8);
+}
+
+#login input[type="text"]:focus,
+#login input[type="password"]:focus {
+    background: rgb(240, 230, 210);
+    border: solid 1px rgb(157, 36, 97);
+}
+
+#pContent {
+    top: 0px;
+    left: 420px;
+    height: 100%;
+    z-index: 900;
+    display: flex;
+    overflow: auto;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% - 420px);
+}
+
+#pContent::before {
+    background: url(../img/background/blanco.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#pContent h3 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: rgb(157, 36, 73);
+}
+
+#pContent p {
+    color: #621132;
+}
+
+#pContent #center {
+    width: 70%;
+}
+
+::placeholder {
+    color: #621132;
+    opacity: 1;
+}
+  
+:-ms-input-placeholder {
+    color: #621132;
+}
+  
+::-ms-input-placeholder {
+    color: #621132;
+}

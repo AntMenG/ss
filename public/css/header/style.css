@@ -1,0 +1,141 @@
+header {
+    top: 0px;
+    left: 0px;
+    width: 220px;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    background-color: rgb(105, 25, 50);
+    box-shadow: 0px 0px 100px 0px rgb(70, 15, 32);
+    background-image: url(../../img/background/vino.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+header #profile_space {
+    width: 100%;
+    height: 220px;
+    background: linear-gradient(
+        -45deg,
+        rgba( 157, 36, 73, 0.3),
+        rgba( 157, 36, 73, 0.2)
+    );
+    position: relative;
+    box-shadow: 0px 0px 100px 0px rgb(43, 8, 19);
+}
+
+header #title {
+    width: 100%;
+    height: auto;
+    padding-top: 10px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+header #title img {
+    width: 60%;
+    display: block;
+    margin: auto auto;
+}
+
+header #profile_space #photo {
+    width: 80px;
+    height: auto;
+    display: block;
+    max-height: 80px;
+    overflow: hidden;
+    margin: auto auto;
+    border: solid 5px;
+    position: relative;
+    margin-bottom: 11px;
+    border-radius: 18px 18px;
+    color: rgba( 242, 242, 242, 0.05);
+    background: rgba( 242, 242, 242, 0.3);
+    box-shadow: 5px 5px 20px 3px rgba(83, 20, 40, 1);
+}
+
+header #profile_space #photo img {
+    width: 80px;
+}
+
+header #profile_space #nombre {
+    width: 100%;
+    cursor: default;
+    overflow: hidden;
+    font-weight: bold;
+    text-align: center;
+    text-overflow: ellipsis;
+    color: rgba( 255, 255, 255, 0.9);
+}
+
+header #profile_space #nombre span {
+    font-size: 11px;
+    color: rgba( 255, 255, 255, 0.7);
+}
+
+header #profile_space button {
+    left: 50%;
+    bottom: 0px;
+    font-size: 14px;
+    color: #ffffff;
+    border: solid 0px;
+    font-weight: bold;
+    padding: 6px 10px;
+    position: absolute;
+    border-radius: 4px 4px;
+    background: rgb(157, 36, 73);
+    transform: translate(-50%, 50%);
+    transition: background linear 0.2s;
+    box-shadow: 5px 5px 20px 3px rgba(83, 20, 40, 1);
+}
+
+header #profile_space button:hover {
+    background: rgb(199, 57, 100);
+}
+
+/* - - - - - - Menu - - - - - - */
+header #menu {
+    width: 175px;
+    min-height: 34px;
+    margin: auto auto;
+    position: relative;
+    margin-top: 30px;
+    border: solid 1px rgb(157, 36, 73);
+    border-radius: 3px 3px;
+}
+
+header #menu button {
+    width: 100%;
+    height: 34px;
+    outline: none;
+    border: solid 0px;
+    font-weight: bold;
+    position: relative;
+    color: rgba( 255, 255, 255, 0.8);
+    background: rgba(157, 36, 73, 0.5);
+    border-bottom: solid 1px rgb(157, 36, 73);
+}
+
+header #menu button:last-child {
+    border-bottom: solid 0px;
+}
+
+header #menu button.active {
+    background: rgba(83, 20, 40, 0.5);
+}
+
+header #menu button.active::before {
+    top: 0px;
+    right: 0px;
+    width: 0px;
+    height: 0px;
+    content: "";
+    position: absolute;
+    border: solid 17px;
+    border-left-width: 0px;
+    border-right-width: 22px;
+    color: rgb(242,242,242);
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    transform: translate(100%, -1px);
+}

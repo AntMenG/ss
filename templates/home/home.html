@@ -1,0 +1,93 @@
+{% extends 'layouts/main.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{% static 'css/header/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/actions/style.css' %}">
+<script src="{% static 'js/home.js' %}"></script>
+
+<section id="space">
+    <header>
+        <section id="profile_space">
+            <div id="title">
+                <img src="{% static 'img/logos/SALUD_HOTIZONTAL_FCFT.png' %}">
+            </div>
+            <section id="photo">
+                <img src="https://i.pinimg.com/originals/d1/b5/13/d1b51337c425f76db1874359d012db41.jpg">
+            </section>
+            <section id="nombre">
+                Jessica Hernández
+                <span>HEGJ951218NNR00</span>
+            </section>
+            <button>SALIR</button>
+        </section>
+        <section id="menu">
+            <button class="<!--active-->">Buscar Expediente</button>
+            <button>Publicar Expediente</button>
+            <button>Historial</button>
+        </section>
+    </header>
+    <section id="actions">
+        <section id="acHeader">
+            <button class="closeA"></button>
+            <div id="title">
+                B<br>u<br>s<br>c<br>a<br>r<br> 
+                <br>E<br>x<br>p<br>e<br>d<br>i<br>e<br>n<br>t<br>e<br>
+            </div>
+        </section>
+        <section id="actions-space">
+
+            <section id="BusEP">
+                <div id="head">
+                    <div id="finder">
+                        <span>BUSCA RFC</span>
+                        <input type="text" name="" placeholder="Escribe el RFC del personal a buscar">
+                    </div>
+                </div>
+                
+                <script>
+                    $(function () {
+                        var find = $("#find").html();
+                        var txt = "";
+                        for (let i = 0; i < 11; i++) {
+                            txt += find;                                
+                        }
+                        $("#find").html(txt);
+                    });
+                </script>
+
+                <div id="find">
+
+                    <div class="target">
+                        <div class="item-left">
+                            <img src="https://i.pinimg.com/originals/d1/b5/13/d1b51337c425f76db1874359d012db41.jpg">
+                            <div class="e-status">
+                                <div class="text true">Expediente</div>
+                                <div class="ico true"></div>
+                            </div>
+                        </div>
+                        <div class="item-right">
+                            <span class="target-text">
+                                <h5>Nombre</h5>
+                                Jessica Hernández Ferrer
+                                <h5>Curp</h5>
+                                HEGJ951218NNR00
+                                <h5>Teléfono</h5>
+                                5569012712
+                            </span>
+                            <button class="carDatos">CARGAR DATOS</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </section>
+    </section>
+</section>
+{% endblock %}
