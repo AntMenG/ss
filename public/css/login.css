@@ -94,21 +94,21 @@
 
 #pContent {
     top: 0px;
-    left: 420px;
     height: 100%;
     z-index: 900;
     display: flex;
     overflow: auto;
     position: absolute;
     align-items: center;
+    left: 420px !important;
     justify-content: center;
-    width: calc(100% - 420px);
+    width: calc(100% - 420px) !important;
 }
 
 #pContent::before {
-    background: url(../img/background/blanco.jpg);
-    background-attachment: fixed;
-    background-size: cover;
+    background: url(../img/background/blanco.jpg) !important;
+    background-attachment: fixed !important;
+    background-size: cover !important;
 }
 
 #pContent h3 {
@@ -136,4 +136,8 @@
   
 ::-ms-input-placeholder {
     color: #621132;
+}
+
+#actions {
+    display: block !important;
 }

@@ -8,13 +8,24 @@
     
     <div id="find">
 
+        <script>
+            $(function () {
+                var targets = $('.target .e-status');
+                targets.each(function (target) {
+                    if ((target + 1) % 4 == 0) {
+                        $(this).removeClass('true');
+                    }
+                });
+            });
+        </script>
+
         {% for i in 'xxxxxxxxxxxxxxx' %}
         <div class="target">
             <div class="item-left">
                 <img src="https://i.pinimg.com/originals/d1/b5/13/d1b51337c425f76db1874359d012db41.jpg">
-                <div class="e-status">
-                    <div class="text true">Expediente</div>
-                    <div class="ico true"></div>
+                <div class="e-status true">
+                    <div class="text">Expediente</div>
+                    <div class="ico"></div>
                 </div>
             </div>
             <div class="item-right">
