@@ -118,7 +118,7 @@
     background: transparent;
     width: calc(100% - 60px);
     transform: translateX(-50%);
-    box-shadow: 0px 0px 60px 7px rgba(83, 20, 40, 0.3);
+    box-shadow: 0px 0px 60px 7px rgba(83, 20, 40, 0.5);
 }
 
 #actions #head #finder {
@@ -126,6 +126,7 @@
     height: 100%;
     overflow: hidden;
     max-width: 600px;
+    border: solid 0px;
     border-radius: 3px 3px;
     background: rgb( 242, 242, 242);
     box-shadow: 0px 0px 3px 0px rgba(83, 20, 40, 0.3) inset;
@@ -191,12 +192,8 @@
     vertical-align: top;
     display: inline-block;
     border-radius: 3px 3px;
-    background: linear-gradient(
-        -45deg,
-        rgba(245, 245, 245, 0.8),
-        rgba(255, 255, 255, 0.8)
-    );
-    box-shadow: 2px 2px 3px 0px rgba(83, 20, 40, 0.2);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 2px 2px 3px 0px rgba(99, 22, 46, 0.2);
 }
 
 #actions .target:last-child {
