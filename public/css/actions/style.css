@@ -106,8 +106,7 @@
 
 #actions #head {
     top: 20px;
-    left: 20px;
-    width: calc(100% - 60px);
+    left: 50%;
     height: 42px;
     z-index: 100;
     display: flex;
@@ -117,6 +116,8 @@
     border-radius: 3px 3px;
     justify-content: center;
     background: transparent;
+    width: calc(100% - 60px);
+    transform: translateX(-50%);
     box-shadow: 0px 0px 60px 7px rgba(83, 20, 40, 0.3);
 }
 
@@ -175,7 +176,7 @@
     width: 100%;
     height: 100%;
     overflow: auto;
-    padding-top: 62px;
+    padding-top: 64px;
     position: absolute;
     text-align: center;
     box-sizing: border-box;
@@ -296,20 +297,50 @@
     opacity: 0.8;
 }
 
-#actions .target .item-right .carDatos {
-    right: 9px;
-    bottom: 9px;
+#actions .target .item-right .buttons {
+    right: 7px;
+    bottom: 11px;
+    max-height: 18px;
+    position: absolute;
+}
+
+#actions .target .item-right .buttons button {
+    float: left;
+    border: solid 0px;
+}
+
+#actions .target .item-right .buttons .verDatos {
+    width: 35px;
+    height: 23px;
+    opacity: 0.5;
+    margin-right: 5px;
+    position: relative;
+    background: transparent;
+    transition: opacity linear 0.2s;
+}
+
+#actions .target .item-right .buttons .verDatos:hover {
+    opacity: 1;
+}
+
+#actions .target .item-right .buttons .verDatos img {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -51.5%);
+}
+
+#actions .target .item-right .buttons .carDatos {
     padding: 4px 8px;
     font-size: 12px;
     border: solid 0px;
     font-weight: bold;
-    position: absolute;
     background: #621132;
     border-radius: 3px 3px;
     color: rgb( 242, 242, 242);
     transition: background linear 0.2s;
 }
 
-#actions .target .item-right .carDatos:hover {
+#actions .target .item-right .buttons .carDatos:hover {
     background: #94214f;
 }

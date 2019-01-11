@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <section id="BusExpP">
     <div id="head">
         <div id="finder">
@@ -37,7 +38,12 @@
                     <h5>Teléfono</h5>
                     5569012712
                 </span>
-                <button class="carDatos">CARGAR DATOS</button>
+                <div class="buttons">
+                    <button class="verDatos">
+                        <img src="{% static 'img/icons/eye.png' %}" title="Ver Expediente">
+                    </button>
+                    <button class="carDatos">CARGAR DATOS</button>
+                </div>
             </div>
         </div>
         {% endfor %}

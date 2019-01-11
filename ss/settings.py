@@ -75,12 +75,14 @@ WSGI_APPLICATION = 'ss.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.oracle',
+        'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'buzzard',
-        'USER': 'TESH',
-        'PASSWORD': '12tesh',
-        'HOST': 'localhost',
-        'PORT': '1521'
+        #'ENGINE': 'django.db.backends.oracle',
+        #'NAME': 'buzzard',
+        #'USER': 'TESH',
+        #'PASSWORD': '12tesh',
+        #'HOST': 'localhost',
+        #'PORT': '1521'
     }
 }
 
