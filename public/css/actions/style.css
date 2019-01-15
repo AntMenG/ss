@@ -192,7 +192,11 @@
     vertical-align: top;
     display: inline-block;
     border-radius: 3px 3px;
-    background: rgba(255, 255, 255, 0.8);
+    background: linear-gradient(
+        -45deg,
+        rgba(242, 242, 242, 1),
+        rgba(255, 255, 255, 0.7)
+    );
     box-shadow: 2px 2px 3px 0px rgba(99, 22, 46, 0.2);
 }
 
@@ -340,4 +344,109 @@
 
 #actions .target .item-right .buttons .carDatos:hover {
     background: #94214f;
+}
+
+/* - - - - - - Seccion Publicar Expediente - - - - - - */
+#actions #cabecera {
+    top: 20px;
+    left: 20px;
+    height: 60px;
+    overflow: hidden;
+    position: absolute;
+    width: calc(100% - 40px);
+    border-radius: 26px 26px;
+    background: rgb( 74, 18, 36);
+}
+
+#actions #cabecera * {
+    cursor: default;
+}
+
+#actions #cabecera #item-photo {
+    float: left;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+    border: solid 5px transparent;
+    background: rgba( 1, 1, 1, 0.2);
+}
+
+#actions #cabecera #item-photo img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 26px 26px;
+}
+
+#actions #cabecera #item-name {
+    float: left;
+    height: 60px;
+    line-height: 60px;
+    font-weight: bold;
+    position: relative;
+    padding-right: 15px;
+    border-radius: 0px 26px 26px 0px;
+    background: rgba( 1, 1, 1, 0.2);
+    color: rgba( 255, 255, 255, 0.7);
+}
+
+#actions #cabecera #cancelPE {
+    float: right;
+    height: 50px;
+    margin-top: 5px;
+    cursor: pointer;
+    margin-right: 5px;
+    font-weight: bold;
+    border: solid 0px;
+    position: relative;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 26px 26px;
+    color: rgba( 255, 255, 255, 0.7);
+    background: rgba( 131, 38, 67, 0.7);
+}
+
+#actions #PubView {
+    left: 20px;
+    top: 100px;
+    width: 220px;
+    position: absolute;
+    height: calc(100% - 120px);
+    border-radius: 26px 0px 0px 26px;
+    background: rgb( 1, 1, 1, 0.3);
+}
+
+#actions #PubFolders {
+    top: 100px;
+    left: 260px;
+    overflow: hidden;
+    position: absolute;
+    width: calc(100% - 280px);
+    height: calc(100% - 120px);
+}
+
+#actions #PubFolders .folder {
+    float: left;
+    margin-right: 20px;
+    position: relative;
+    margin-bottom: 20px;
+    width: calc(50% - 10px);
+    height: calc(50% - 60px);
+    background: rgba(148, 33, 79, 0.5);
+}
+
+#actions #PubFolders .folder:nth-child(2) {
+    border-radius: 0px 26px 0px 0px;
+}
+
+#actions #PubFolders .folder:nth-child(2n) {
+    margin-right: 0px;
+}
+
+#actions #PubFolders .folder:nth-child(5) {
+    width: 100%;
+    height: calc(50% - 208px);
+    border-radius: 0px 0px 26px 0px;
 }
