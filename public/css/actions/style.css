@@ -412,10 +412,35 @@
     left: 20px;
     top: 100px;
     width: 220px;
+    overflow: auto;
     position: absolute;
     height: calc(100% - 120px);
     border-radius: 26px 0px 0px 26px;
     background: rgb( 1, 1, 1, 0.3);
+}
+
+#actions #PubView span {
+    height: 31px;
+    display: block;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    line-height: 31px;
+    background: rgba( 1, 1, 1, 0.2);
+    color: rgba( 255, 255, 255, 0.6);
+}
+
+#actions #PubView span button {
+    top: 0px;
+    right: 0px;
+    width: 31px;
+    height: 31px;
+    font-size: 16px;
+    font-weight: bold;
+    border: solid 0px;
+    position: absolute;
+    background: rgba( 1, 1, 1, 0.3);
+    color: rgba( 242, 242, 242, 0.6);
 }
 
 #actions #PubFolders {
@@ -433,8 +458,17 @@
     position: relative;
     margin-bottom: 20px;
     width: calc(50% - 10px);
-    height: calc(50% - 60px);
+    height: 40%;
     background: rgba(148, 33, 79, 0.5);
+}
+
+#actions #PubFolders .folder span {
+    display: table;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 0px 0px 8px 0px;
+    background: rgba( 1, 1, 1, 0.2);
+    color: rgba( 255, 255, 255, 0.6);
 }
 
 #actions #PubFolders .folder:nth-child(2) {
@@ -447,6 +481,6 @@
 
 #actions #PubFolders .folder:nth-child(5) {
     width: 100%;
-    height: calc(50% - 208px);
+    height: 15%;
     border-radius: 0px 0px 26px 0px;
 }
