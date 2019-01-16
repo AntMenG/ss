@@ -10,6 +10,7 @@ a, button {
 body, html {
     margin: 0 0;
     padding: 0 0;
+    border: solid 0px;
     background: rgb(92, 23, 45);
 }
 

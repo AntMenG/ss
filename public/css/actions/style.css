@@ -457,6 +457,7 @@
 
 #actions #PubView img {
     width: 80%;
+    cursor: move;
     margin: auto auto;
     margin-bottom: 10px;
     border-radius: 14px 14px;
@@ -482,15 +483,6 @@
     background: rgba(148, 33, 79, 0.6);
 }
 
-#actions #PubFolders .folder span {
-    display: table;
-    font-weight: bold;
-    padding: 6px 12px;
-    border-radius: 0px 0px 8px 0px;
-    background: rgba( 1, 1, 1, 0.2);
-    color: rgba( 255, 255, 255, 0.6);
-}
-
 #actions #PubFolders .folder:nth-child(2n) {
     margin-right: 0px;
 }
@@ -498,4 +490,28 @@
 #actions #PubFolders .folder:nth-child(5) {
     width: 100%;
     height: 15%;
+}
+
+#actions #PubFolders .folder span {
+    display: table;
+    max-height: 28px;
+    font-weight: bold;
+    line-height: 30px;
+    padding: 0px 12px;
+    border-radius: 0px 0px 8px 0px;
+    background: rgba( 1, 1, 1, 0.2);
+    color: rgba( 255, 255, 255, 0.6);
+}
+
+#actions #PubFolders .folder .drag {
+    width: 100%;
+    overflow: auto;
+    position: relative;
+    height: calc(100% - 28px);
+}
+
+#actions #PubFolders .folder .drag img {
+    height: 50%;
+    cursor: move;
+    position: relative;
 }
