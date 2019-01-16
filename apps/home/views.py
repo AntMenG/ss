@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.core.files.storage import FileSystemStorage
 
 # Create your views here.
 def home (request):
@@ -7,3 +8,12 @@ def home (request):
         'title' : 'SS | Home'
     }
     return render(request, 'home/home.html', context)
+
+def upload(request):
+    if request.method == 'POST':
+        uploaded_file = request.FILES['document']
+        fs=FileSystemStorage()
+        fs.save(uploaded_file.name, uploaded_file)
+        print(uploaded_file.name)
+        print(uploaded_file.size)
+    return render(request, 'upload.html')
