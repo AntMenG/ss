@@ -485,7 +485,19 @@
 }
 
 #actions #PubFolders .folder:hover {
-    background: rgba(148, 33, 79, 0.8);
+    animation: ilumina 0.6s;
+}
+
+@keyframes ilumina {
+    0% {
+        background: rgba(148, 33, 79, 0.6);
+    }
+    50% {
+        background: rgba(148, 33, 79, 0.8);
+    }
+    100% {
+        background: rgba(148, 33, 79, 0.6);
+    }
 }
 
 #actions #PubFolders .folder:nth-child(2n) {
