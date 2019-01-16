@@ -8,6 +8,7 @@
     align-items: center;
     justify-content: center;
     width: calc(100% - 220px);
+    min-width: 720px;
 }
 
 #pContent::before {
@@ -37,6 +38,7 @@
     display: none;
     position: absolute;
     width: calc(100% - 220px);
+    min-width: 720px;
 }
 
 .actionsVisible {
@@ -56,6 +58,7 @@
 #actions #acHeader .closeA {
     width: 30px;
     height: 30px;
+    z-index: 300;
     margin-top: 6px;
     margin-left: 6px;
     border: solid 0px;
@@ -476,7 +479,7 @@
     position: relative;
     margin-bottom: 20px;
     width: calc(50% - 10px);
-    background: rgba(148, 33, 79, 0.5);
+    background: rgba(148, 33, 79, 0.6);
 }
 
 #actions #PubFolders .folder span {

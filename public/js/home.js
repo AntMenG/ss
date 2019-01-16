@@ -13,15 +13,16 @@ $( function () {
         var a_panel = '#actions-space > section';
 		var data_panel = $(th).attr('data-panel');
 		var panel = $(a_panel + data_panel);
-		var title = '';
+		var title = '', text = '';
         tag_menu.attr('class','');
 		$(th).attr('class','active');
 		$('#pContent').attr('class','blur');
         actions.addClass('actionsVisible');
         $(a_panel).css('display','none');
 		panel.css('display','block');
-		for (var i = 0; i < $(th).text().length; i++) {
-			title += $(th).text()[i] + '<br>';
+		text = $(th).attr('data-text');
+		for (var i = 0; i < text.length; i++) {
+			title += text[i] + '<br>';
 		}
 		$('#actions #title').html(title);
 	}

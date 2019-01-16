@@ -1,0 +1,57 @@
+header {
+    width: 50px;
+}
+
+header #profile_space {
+    width: 100%;
+    height: 106px;
+}
+
+header #profile_space #photo {
+    width: 50px;
+    max-height: 50px;
+    margin: auto auto;
+    border: solid 0px;
+    margin-bottom: 11px;
+    border-radius: 0 0;
+}
+
+header #profile_space #photo img {
+    width: 50px;
+}
+
+header #profile_space #nombre {
+    display: none;
+}
+
+header #profile_space button {
+    width: 30px;
+    height: 30px;
+}
+
+
+header #profile_space button span {
+    display: none;
+}
+
+header #profile_space button img {
+    top: 50%;
+    left: 50%;
+    display: block;
+    position: absolute;
+    transform: translate(-46%, -50%);
+}
+
+
+header #menu {
+    width: 34px;
+}
+
+header #menu button span {
+    display: none;
+}
+
+header #menu button img {
+    margin-top: -2px;
+    margin-right: 0px;
+}

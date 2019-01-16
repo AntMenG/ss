@@ -7,7 +7,9 @@
 
 {% block body %}
 <link rel="stylesheet" href="{% static 'css/header/style.css' %}">
+<link rel="stylesheet" media="(max-width: 970px)" href="{% static 'css/header/970/header.css' %}">
 <link rel="stylesheet" href="{% static 'css/actions/style.css' %}">
+<link rel="stylesheet" media="(max-width: 970px)" href="{% static 'css/actions/970/actions.css' %}">
 <script src="{% static 'js/home.js' %}"></script>
 
 <section id="space">
@@ -23,12 +25,30 @@
                 Jessica Hernández
                 <span>HEGJ951218NNR00</span>
             </section>
-            <button>SALIR</button>
+            <button>
+                <img src="{% static 'img/icons/power.png' %}" alt="">
+                <span>SALIR</span>
+            </button>
         </section>
         <section id="menu">
-            <button id="BusExp" data-panel="#BusExpP" class="<!--active-->">Buscar Expediente</button>
-            <button id="PubExp" data-panel="#PubExpP">Publicar Expediente</button>
-            <button id="HisP" data-panel="#HisP">Historial</button>
+            <button id="BusExp" data-text="Buscar Expediente" data-panel="#BusExpP" class="<!--active-->">
+                <img src="{% static 'img/icons/find.png' %}" alt="">
+                <span>
+                    Buscar Expediente
+                </span>
+            </button>
+            <button id="PubExp" data-text="Publicar Expediente" data-panel="#PubExpP">
+                <img src="{% static 'img/icons/pe.png' %}" alt="">
+                <span>
+                    Publicar Expediente
+                </span>
+            </button>
+            <button id="HisP"  data-text="Historial" data-panel="#HisP">
+                <img src="{% static 'img/icons/clock.png' %}" alt="">
+                <span>
+                    Historial
+                </span>
+            </button>
         </section>
     </header>
 

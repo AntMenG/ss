@@ -1,0 +1,9 @@
+#pContent {
+    left: 50px;
+    width: calc(100% - 50px);
+}
+
+#actions {
+    left: 50px;
+    width: calc(100% - 50px);
+}
