@@ -34,7 +34,12 @@
     <section id="PubView">
         <span>
             ARCHIVOS
-            <button>+</button>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="file" name="document">
+                <button type="submit">+</button>
+            </form>
+            
         </span>
         <div id="pub-space" ondrop="drop(event)" ondragover="allowDrop(event)">
             <img id="i1" draggable="true" ondragstart="drag(event)" src="http://semanariolaguna.com/wp-content/uploads/2018/01/ACTA-800x1024.jpg" alt="">
