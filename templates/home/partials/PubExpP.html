@@ -41,7 +41,7 @@
             <section id="PubView">
                 <span>
                     ARCHIVOS
-                    <form method="POST" enctype="multipart/form-data">
+                    <form method="POST" action="/home/upload/" enctype="multipart/form-data">
                         {% csrf_token %}
                         <input type="file" name="document">
                         <button type="submit">+</button>
