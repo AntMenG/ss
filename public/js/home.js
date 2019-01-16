@@ -43,5 +43,9 @@ $( function () {
 		pubExp = true;
 		showPanel($('#PubExp'));
 	});
+	$('#cancelPE').on('click', function () {
+		pubExp = false;
+		showPanel($('#BusExp'));
+	});
 
 });
