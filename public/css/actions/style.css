@@ -480,7 +480,12 @@
     position: relative;
     margin-bottom: 20px;
     width: calc(50% - 10px);
+    transition: all linear 0.2s;
     background: rgba(148, 33, 79, 0.6);
+}
+
+#actions #PubFolders .folder:hover {
+    background: rgba(148, 33, 79, 0.8);
 }
 
 #actions #PubFolders .folder:nth-child(2n) {
