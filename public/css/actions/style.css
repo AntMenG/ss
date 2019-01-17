@@ -609,6 +609,12 @@
 }
 
 #actions #preview img {
+    cursor: zoom-in;
     margin: auto auto;
     max-width: calc( 100% - 40px);
+}
+
+#actions #preview .zoom {
+    cursor: zoom-out;
+    width: calc( 100% - 40px);
 }

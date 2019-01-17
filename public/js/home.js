@@ -88,6 +88,14 @@ $( function () {
 			$('#preview').css('display','none');
 		}
 	});
+	$('#preview').on('click', 'img', function () {
+		var img = $(this);
+		if (img.hasClass('zoom')) {
+			img.removeClass('zoom');
+		} else {
+			img.addClass('zoom');
+		}
+	});
 	$('.help button').on('click', function () {
 		$(this).parent().css('display','none');
 	});
