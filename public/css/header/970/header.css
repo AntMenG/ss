@@ -47,6 +47,10 @@ header #menu {
     width: 34px;
 }
 
+header #menu button {
+    text-align: center;
+}
+
 header #menu button span {
     display: none;
 }
