@@ -11,9 +11,12 @@ def home (request):
 
 def upload(request):
     if request.method == 'POST':
-        uploaded_file = request.FILES['document']
-        fs=FileSystemStorage()
-        fs.save(uploaded_file.name, uploaded_file)
-        print(uploaded_file.name)
-        print(uploaded_file.size)
+        try:
+            uploaded_file = request.FILES['document']
+            fs=FileSystemStorage()
+            fs.save(uploaded_file.name, uploaded_file)
+            print(uploaded_file.name)
+            print(uploaded_file.size)
+        except:
+            print("No se envió un archivo")
     return render(request, 'upload.html')

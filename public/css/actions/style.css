@@ -429,6 +429,14 @@
     border: solid 1px rgba(148, 33, 79, 0.4);
 }
 
+#actions .help button {
+    border: solid 0px;
+    margin-left: 4.5px;
+    border-radius: 8px 8px;
+    color: rgba( 255, 255, 255, 0.4);
+    background: rgba(148, 33, 79, 0.6);
+}
+
 #actions #PubSpace {
     top: 0px;
     left: 0px;
@@ -574,5 +582,9 @@
 #actions #PubFolders .folder .drag img {
     height: 50%;
     cursor: move;
+    margin-top: 5px;
+    margin-left: 5px;
     position: relative;
+    border-radius: 4px 4px;
+    box-shadow: 1px 1px 4px rgba( 1, 1, 1, 0.3);
 }

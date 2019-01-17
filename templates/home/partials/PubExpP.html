@@ -18,6 +18,9 @@
             ev.target.parentElement.appendChild(document.getElementById(data));
         }
     }
+    function ok(ev) {
+            ev.target.parentElement.style = 'display:none;';
+    }
 </script>
 
 <section id="PubExpP">
@@ -35,6 +38,7 @@
         
         <section class="help">
             Arrastra las imágenes de la izquierda a la casilla que correspondan
+            <button onclick="ok(event)">OK</button>
         </section>
         
         <section id="PubWrapper">
@@ -43,7 +47,7 @@
                     ARCHIVOS
                     <form method="POST" action="/home/upload/" enctype="multipart/form-data">
                         {% csrf_token %}
-                        <input type="file" name="document">
+                        <input type="file" style="display: none;" name="document">
                         <button type="submit">+</button>
                     </form>
                 </span>
