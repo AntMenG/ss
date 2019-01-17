@@ -64,6 +64,18 @@ $( function () {
 			$(this).parent().append(drag);
 		}
 	});
+	drag_zone.on('dblclick', 'img', function () {
+		$('#preview').html('');
+		var img = $(document.createElement('img'));
+		img.attr('src', $(this).attr('src'));
+		$('#preview').append(img);
+		$('#preview').css('display','flex');
+	});
+	$('#preview').on('click', function (e) {
+		if($(e.target).prop("tagName") != 'IMG') {
+			$('#preview').css('display','none');
+		}
+	});
 	$('.help button').on('click', function () {
 		$(this).parent().css('display','none');
 	});
