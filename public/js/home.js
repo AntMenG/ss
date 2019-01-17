@@ -38,7 +38,7 @@ $( function () {
         actions.removeClass('actionsVisible');
 		$('#pContent').attr('class','');
 	}
-	// Abrir Publicar Expedientes
+	// - - - - - - Abrir Publicar Expedientes - - - - - -
 	$("#BusExpP").on('click', '.carDatos', function () {
 		pubExp = true;
 		showPanel($('#PubExp'));
@@ -47,5 +47,24 @@ $( function () {
 		pubExp = false;
 		showPanel($('#BusExp'));
 	});
-
+	// - - - - - - Evento de movimiento - - - - - -
+	var drag = '';
+	var drag_drop = $('.folder .drag, #pub-space');
+	drag_drop.on('dragover', function (e) {
+		e.preventDefault();
+	});
+	drag_drop.on('dragstart', 'img', function () {
+		drag = $(this);
+	});
+	drag_drop.on('drop', function (e) {
+		e.preventDefault();
+		if ($(this).prop("tagName") != 'IMG') {
+			$(this).append(drag);
+		} else {
+			$(this).parent().append(drag);
+		}
+	});
+	$('.help button').on('click', function () {
+		$(this).parent().css('display','none');
+	});
 });

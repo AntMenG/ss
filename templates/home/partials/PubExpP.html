@@ -1,28 +1,5 @@
 {% load staticfiles %}
 
-<script>
-    function allowDrop(ev) {
-        ev.preventDefault();
-    }
-        
-    function drag(ev) {
-        ev.dataTransfer.setData("text", ev.target.id);
-    }
-        
-    function drop(ev) {
-        ev.preventDefault();
-        var data = ev.dataTransfer.getData("text");
-        if (ev.target.tagName != 'IMG') {
-            ev.target.appendChild(document.getElementById(data));
-        } else {
-            ev.target.parentElement.appendChild(document.getElementById(data));
-        }
-    }
-    function ok(ev) {
-            ev.target.parentElement.style = 'display:none;';
-    }
-</script>
-
 <section id="PubExpP">
     <section id="cabecera">
         <div id="item-photo">
@@ -38,7 +15,7 @@
         
         <section class="help">
             Arrastra las imágenes de la izquierda a la casilla que correspondan
-            <button onclick="ok(event)">OK</button>
+            <button>OK</button>
         </section>
         
         <section id="PubWrapper">
@@ -51,41 +28,41 @@
                         <button type="submit">+</button>
                     </form>
                 </span>
-                <div id="pub-space" ondrop="drop(event)" ondragover="allowDrop(event)">
-                    <img id="i1" draggable="true" ondragstart="drag(event)" src="http://semanariolaguna.com/wp-content/uploads/2018/01/ACTA-800x1024.jpg" alt="">
-                    <img id="i2" draggable="true" ondragstart="drag(event)" src="https://staticz.womenalia.com/images/avatar/blogs/post/8468/el-curp-y-sun-funcion_1520351457.png" alt="">
-                    <img id="i3 " draggable="true" ondragstart="drag(event)" src="https://image.slidesharecdn.com/cargaacademicaintensivos2013prod-130729130359-phpapp02/95/carga-academica-intensivos-2013-prod-1-638.jpg" alt="">
+                <div id="pub-space">
+                    <img id="i1" draggable="true" src="http://semanariolaguna.com/wp-content/uploads/2018/01/ACTA-800x1024.jpg" alt="">
+                    <img id="i2" draggable="true" src="https://staticz.womenalia.com/images/avatar/blogs/post/8468/el-curp-y-sun-funcion_1520351457.png" alt="">
+                    <img id="i3" draggable="true" src="https://image.slidesharecdn.com/cargaacademicaintensivos2013prod-130729130359-phpapp02/95/carga-academica-intensivos-2013-prod-1-638.jpg" alt="">
                 </div>
             </section>
             
             <section id="PubFolders">
                 <div class="folder">
                     <span>Acta de Nacimiento</span>
-                    <section class="drag" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <section class="drag">
         
                     </section>
                 </div>
                 <div class="folder">
                     <span>CURP</span>
-                    <section class="drag" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <section class="drag">
         
                     </section>
                 </div>
                 <div class="folder">
                     <span>Académico</span>
-                    <section class="drag" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <section class="drag">
         
                     </section>
                 </div>
                 <div class="folder">
                     <span>FOMOPES</span>
-                    <section class="drag" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <section class="drag">
         
                     </section>
                 </div>
                 <div class="folder">
                     <span>Otros</span>
-                    <section class="drag" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <section class="drag">
         
                     </section>
                 </div>
