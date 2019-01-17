@@ -49,14 +49,14 @@ $( function () {
 	});
 	// - - - - - - Evento de movimiento - - - - - -
 	var drag = '';
-	var drag_drop = $('.folder .drag, #pub-space');
-	drag_drop.on('dragover', function (e) {
+	var drag_zone = $('.drag_zone');
+	drag_zone.on('dragover', function (e) {
 		e.preventDefault();
 	});
-	drag_drop.on('dragstart', 'img', function () {
+	drag_zone.on('dragstart', 'img', function () {
 		drag = $(this);
 	});
-	drag_drop.on('drop', function (e) {
+	drag_zone.on('drop', function (e) {
 		e.preventDefault();
 		if ($(this).prop("tagName") != 'IMG') {
 			$(this).append(drag);
