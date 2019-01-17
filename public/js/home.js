@@ -1,8 +1,9 @@
 $( function () {
 	// Abrir Actions
+	var close;
 	var pubExp = false;
     var actions = $('#actions');
-    var tag_menu = $('#menu button');
+	var tag_menu = $('#menu button');
     tag_menu.on('click', function () {
 		var data_id = $(this).attr('id');
 		if (data_id != 'PubExp' || pubExp) {
@@ -31,7 +32,17 @@ $( function () {
 		closeA();
 	});
 	$(document).on('keyup',function (e) {
-		if (e.keyCode == 27) { closeA(); }
+		if (e.keyCode == 27) { 
+			switch (close) {
+				case '#preview':
+					$(close).css('display','none');
+					close = null;
+					break;
+				default:
+					closeA(); 
+					break;
+			}
+		}
 	});
 	function closeA() {
 		tag_menu.attr('class','');
@@ -65,6 +76,7 @@ $( function () {
 		}
 	});
 	drag_zone.on('dblclick', 'img', function () {
+		close = '#preview';
 		$('#preview').html('');
 		var img = $(document.createElement('img'));
 		img.attr('src', $(this).attr('src'));
