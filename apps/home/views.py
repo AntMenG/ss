@@ -6,14 +6,14 @@ from django.core.files.storage import FileSystemStorage
 def home (request):
     context = {
         'title' : 'SS | Carga de Expedientes',
-        'target' : 'Cargar Expediente'
+        'target' : 'CARGAR EXPEDIENTE'
     }
     return render(request, 'home/home.html', context)
 
 def cesp (request):
     context = {
         'title' : 'SS | Clasificacion de Expedientes',
-        'target' : 'Organizar Expediente'
+        'target' : 'ORDENAR EXPEDIENTE'
     }
     return render(request, 'home/cesp.html', context)
 
