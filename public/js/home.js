@@ -51,7 +51,18 @@ $( function () {
 	}
 	// - - - - - - Abrir Publicar Expedientes - - - - - -
 	$("#BusExpP").on('click', '.carDatos', function () {
+		var id = $(this).attr('data-id');
+		var token = $('input[name="csrfmiddlewaretoken"]').val();
 		pubExp = true;
+		$.post('/home/selecciona_empleado/', {
+			id : id,
+			'csrfmiddlewaretoken' : token
+		}, function (response) {
+			var nombre = response.nombre,
+				apellidos = response.apellidos,
+				item_name = $('#cabecera #item-name');
+			item_name.text(nombre + ' ' + apellidos);
+		});
 		showPanel($('#PubExp'));
 	});
 	$('#cancelPE').on('click', function () {

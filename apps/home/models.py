@@ -8,6 +8,7 @@ class Empleado(models.Model):
     telefono = models.CharField(max_length=12)
     curp = models.CharField(max_length=20)
     rfc = models.CharField(max_length=20)
+    objects = models.Manager()
 
     def __str__(self):
         return '{} {}'.format(self.nombre, self.apellidos)
@@ -19,3 +20,4 @@ class Archivo(models.Model):
     document = models.FileField(upload_to='documents/')
     uploaded_at = models.DateTimeField(auto_now_add=True)
     empleado = models.ForeignKey(Empleado, null=True, blank=True, on_delete=models.CASCADE)
+    objects = models.Manager()

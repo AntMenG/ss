@@ -19,7 +19,7 @@
                 });
             });
         </script>
-        
+        {% csrf_token %}
         {% for empleado in empleados %}
         <div class="target">
             <div class="item-left">

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.core.files.storage import FileSystemStorage
-from .models import Empleado, Archivo
+from apps.home.models import Empleado, Archivo
 
 # Create your views here.
 def home (request):
@@ -19,6 +19,16 @@ def cesp (request):
         'target' : 'ORDENAR EXPEDIENTE'
     }
     return render(request, 'home/cesp.html', context)
+
+def selecciona_empleado (request):
+    if request.method == 'POST':
+        data = request.POST.copy()
+        results = Empleado.objects.filter(
+            id = int(data.get('id'))
+        ).values()
+        return JsonResponse(list(results)[0])
+    elif request.method == 'GET':
+        return redirect('home')
 
 def upload(request):
     if request.method == 'POST':
