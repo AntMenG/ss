@@ -19,14 +19,18 @@ def cesp (request):
 
 def upload(request):
     if request.method == 'POST':
+        c_type = ['image/png','image/jpeg']
         try:
-            #uploaded_file = request.FILES['document']
             files = request.FILES.getlist('document')
             for f in files:
-                fs=FileSystemStorage()
-                fs.save(f.name, f)
-                print(f.name)
-                print(f.size)
+                if f.content_type in c_type:
+                    fs=FileSystemStorage()
+                    fs.save(f.name, f)
+                    print(f.name)
+                    print(f.size)
+                    print(f.content_type)
+                else:
+                    print('Archivo no admitido')
         except:
             print("No se envió un archivo")
     return render(request, 'upload.html')
