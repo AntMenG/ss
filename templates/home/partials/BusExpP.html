@@ -42,7 +42,7 @@
                     <button class="verDatos">
                         <img src="{% static 'img/icons/eye.png' %}" title="Ver Expediente">
                     </button>
-                    <button class="carDatos">{{ target }}</button>
+                    <button class="carDatos" data-id="{{ empleado.id }}">{{ target }}</button>
                 </div>
             </div>
         </div>
