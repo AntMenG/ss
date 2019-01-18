@@ -301,6 +301,14 @@
     opacity: 0.8;
 }
 
+#actions .target .item-right .target-text span {
+    width: 100%;
+    height: 16px;
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+}
+
 #actions .target .item-right .buttons {
     right: 7px;
     bottom: 11px;
