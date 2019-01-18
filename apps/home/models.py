@@ -9,6 +9,10 @@ class Empleado(models.Model):
     curp = models.CharField(max_length=20)
     rfc = models.CharField(max_length=20)
 
+    def __str__(self):
+        return '{} {}'.format(self.nombre, self.apellidos)
+
+
 class Archivo(models.Model):
     tipo = models.CharField(max_length=50)
     size = models.CharField(max_length=255, blank=True)
