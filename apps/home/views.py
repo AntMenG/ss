@@ -20,11 +20,13 @@ def cesp (request):
 def upload(request):
     if request.method == 'POST':
         try:
-            uploaded_file = request.FILES['document']
-            fs=FileSystemStorage()
-            fs.save(uploaded_file.name, uploaded_file)
-            print(uploaded_file.name)
-            print(uploaded_file.size)
+            #uploaded_file = request.FILES['document']
+            files = request.FILES.getlist('document')
+            for f in files:
+                fs=FileSystemStorage()
+                fs.save(f.name, f)
+                print(f.name)
+                print(f.size)
         except:
             print("No se envió un archivo")
     return render(request, 'upload.html')
