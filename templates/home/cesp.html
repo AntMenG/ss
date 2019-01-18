@@ -1,0 +1,130 @@
+{% extends 'layouts/main.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{% static 'css/header/style.css' %}">
+<link rel="stylesheet" media="(max-width: 970px)" href="{% static 'css/header/970/header.css' %}">
+<link rel="stylesheet" href="{% static 'css/actions/style.css' %}">
+<link rel="stylesheet" media="(max-width: 970px)" href="{% static 'css/actions/970/actions.css' %}">
+<script src="{% static 'js/home.js' %}"></script>
+
+<section id="space">
+    <header>
+        <section id="profile_space">
+            <div id="title">
+                <img src="{% static 'img/logos/SALUD_HOTIZONTAL_FCFT.png' %}">
+            </div>
+            <section id="photo">
+                <img src="https://i.pinimg.com/originals/d1/b5/13/d1b51337c425f76db1874359d012db41.jpg">
+            </section>
+            <section id="nombre">
+                Jessica Hernández
+                <span>HEGJ951218NNR00</span>
+            </section>
+            <button>
+                <img src="{% static 'img/icons/power.png' %}" alt="">
+                <span>SALIR</span>
+            </button>
+        </section>
+        <section id="menu">
+            <button id="BusExp" data-text="Buscar Expediente" data-panel="#BusExpP" class="<!--active-->">
+                <img src="{% static 'img/icons/find.png' %}" alt="">
+                <span>
+                    Buscar Expediente
+                </span>
+            </button>
+            <button id="PubExp" data-text="Ordenar Expediente" data-panel="#OrdExpP">
+                <img src="{% static 'img/icons/pe.png' %}" alt="">
+                <span>
+                    Ordenar Expediente
+                </span>
+            </button>
+            <button id="HisP"  data-text="Historial" data-panel="#HisP">
+                <img src="{% static 'img/icons/clock.png' %}" alt="">
+                <span>
+                    Historial
+                </span>
+            </button>
+        </section>
+    </header>
+
+    <div id="pContent">
+    
+        <section id="center">
+            <h3>AVANCE DEL ESCANEO DE EXPEDIENTES</h3>
+            <p>Resumen de los últimos 6 días de publicación de espedientes</p>
+        
+            <div class="chart-container" style="position: relative; height:220px; width:100%">
+                <canvas id="myChart" style="height: 220px;"></canvas>
+            </div>
+            <script>
+                var ctx = document.getElementById("myChart").getContext('2d');
+                ctx.height = 100;
+                let chart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        datasets: [{
+                            label: 'Avance',
+                            data: [3000, 2500, 3120, 3000, 3321, 3100],
+                            backgroundColor: 'rgba( 177, 56, 93, 0.5)',
+                            borderColor: 'rgba( 177, 56, 93, 0.9)',
+                        }],
+                        labels: [
+                            '10/12/2018', 
+                            '11/12/2018', 
+                            '12/12/2018', 
+                            '13/12/2018',
+                            '14/12/2018',
+                            '15/12/2018'
+                        ]
+                    },
+                    options: {
+                        legend: {
+                            labels: {
+                                fontColor: "rgb(218, 203, 207)"
+                            }
+                        },
+                        tooltips: {
+                            backgroundColor: 'rgb(83, 20, 40)'
+                        },
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    fontColor: "rgb(218, 203, 207)",
+                                    suggestedMin: 50,
+                                    suggestedMax: 100
+                                }
+                            }],
+                            xAxes: [{
+                                ticks: {
+                                    fontColor: "rgb(218, 203, 207)",
+                                }
+                            }]
+                        }
+                    }
+                });
+            </script>
+        </section>
+    
+    </div>
+
+    <section id="actions">
+        <section id="acHeader">
+            <button class="closeA"></button>
+            <div id="title"></div>
+        </section>
+        <section id="actions-space">
+
+            {% include 'home/partials/BusExpP.html' %}
+            {% include 'home/partials/OrdExpP.html' %}
+
+        </section>
+    </section>
+</section>
+{% endblock %}

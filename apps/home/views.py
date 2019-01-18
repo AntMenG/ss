@@ -5,9 +5,15 @@ from django.core.files.storage import FileSystemStorage
 # Create your views here.
 def home (request):
     context = {
-        'title' : 'SS | Home'
+        'title' : 'SS | Carga de Expedientes'
     }
     return render(request, 'home/home.html', context)
+
+def cesp (request):
+    context = {
+        'title' : 'SS | Clasificacion de Expedientes'
+    }
+    return render(request, 'home/cesp.html', context)
 
 def upload(request):
     if request.method == 'POST':
