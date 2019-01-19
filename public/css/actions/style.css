@@ -520,6 +520,24 @@
     box-sizing: border-box;
 }
 
+#actions #PubSpace #PubWrapper .seleccionar{
+    position: absolute;
+    padding: 30px 60px;
+    border-radius: 8px 8px;
+    color: rgba( 255, 255, 255, 0.4);
+    background: rgba(148, 33, 79, 0.6);
+}
+#actions #PubSpace #PubWrapper .seleccionar:hover{
+    color: rgba( 255, 255, 255, 0.4);
+    background: rgba(148, 33, 79, 0.884);
+}
+
+#actions #PubSpace #PubWrapper .subir{
+    padding: 150px 200px;
+    color:#fff;
+    border:0px solid #fff;
+}
+
 #actions #PubSpace #PubWrapper {
     margin-left: 20px;
     position: relative;

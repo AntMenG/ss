@@ -12,14 +12,27 @@
     </section>
 
     <section id="PubSpace">
-        
+
         <section class="help">
             Crea tu interfaz debajo :D
             <button>OK</button>
         </section>
 
         <!-- Todo tu html aqui -->
-        
+
+        <section id="PubWrapper">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label for="file-upload" class="seleccionar">
+                    Seleccionar archivo
+                </label>
+                <input id="file-upload" type="file" multiple style='display: none;' name="document" />
+                <label for="button-upload" class="subir"></label>
+                <button id="button-upload" type="submit">Cargar archivo</button>
+            </form>
+
+
+        </section>
     </section>
 
     <section id="preview"></section>
