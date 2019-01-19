@@ -10,8 +10,6 @@ $(function () {
 
 		if (data_id != 'PubExp' || pubExp) {
 			showPanel(this);
-		} else if (data_id != 'HisExp' || hisExp) {
-			showPanel(this);
 		}
 
 		});
@@ -74,7 +72,7 @@ $(function () {
 	});
 	$('#cancelPE').on('click', function () {
 		pubExp = false;
-		showPanel($('#BusExp'));
+		$('#BusExp').click();
 	});
 	$("#morePE").on('click', function () {
 		$('#cabecera').css({
@@ -125,6 +123,9 @@ $(function () {
 	});
 
 	// Abrir Historial de Expedientes
+	/*
+	Cancela la funcionalidad de "cancelar subida de expediente"
+	El historil no necesita ser cancelado. Al historial se podrá acceder siempre
 	$("#HisExpP").on('click', function () {
 		hisExp = true;
 		showPanel($('#HisExp'));
@@ -133,4 +134,5 @@ $(function () {
 		hisExp = false;
 		showPanel($('#HisExp'));
 	});
+	*/
 });
