@@ -11,21 +11,6 @@ def home (request):
         'target' : 'CARGAR EXPEDIENTE',
         'empleados' : empleado
     }
-    if request.method == 'POST':
-        c_type = ['image/png','image/jpeg']
-        try:
-            files = request.FILES.getlist('document')
-            for f in files:
-                if f.content_type in c_type:
-                    fs=FileSystemStorage()
-                    fs.save(f.name, f)
-                    print(f.name)
-                    print(f.size)
-                    print(f.content_type)
-                else:
-                    print('Archivo no admitido')
-        except:
-            print("No se envió un archivo")
     return render(request, 'home/home.html', context)
 
 def cesp (request):
@@ -44,5 +29,31 @@ def selecciona_empleado (request):
             id = int(data.get('id'))
         ).values()
         return JsonResponse(list(results)[0])
+    elif request.method == 'GET':
+        return redirect('home')
+
+def cargar_expediente (request):
+    if request.method == 'POST':
+        c_type = ['image/png','image/jpeg']
+        try:
+            files = request.FILES.getlist('document')
+            for f in files:
+                if f.content_type in c_type:
+                    fs=FileSystemStorage()
+                    fs.save(f.name, f)
+                    print(f.name)
+                    print(f.size)
+                    print(f.content_type)
+                else:
+                    print('Archivo no admitido')
+            return JsonResponse({
+                'status' : 'done',
+                'text' : 'Correcto'
+            })
+        except:
+            return JsonResponse({
+                'status' : 'err',
+                'text' : 'Debes enviar archivos'
+            })
     elif request.method == 'GET':
         return redirect('home')
