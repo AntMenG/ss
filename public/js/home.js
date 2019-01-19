@@ -69,6 +69,12 @@ $( function () {
 		pubExp = false;
 		showPanel($('#BusExp'));
 	});
+	$("#morePE").on('click', function () {
+		$('#cabecera').css({
+			'overflow':'inherit',
+			'min-height':'60px'
+		});
+	});
 	// - - - - - - Evento de movimiento - - - - - -
 	var drag = '';
 	var drag_zone = $('.drag_zone');

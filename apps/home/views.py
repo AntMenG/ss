@@ -14,9 +14,11 @@ def home (request):
     return render(request, 'home/home.html', context)
 
 def cesp (request):
+    empleado = Empleado.objects.all().order_by('id')
     context = {
         'title' : 'SS | Clasificacion de Expedientes',
-        'target' : 'ORDENAR EXPEDIENTE'
+        'target' : 'ORDENAR EXPEDIENTE',
+        'empleados' : empleado
     }
     return render(request, 'home/cesp.html', context)
 

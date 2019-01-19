@@ -361,9 +361,9 @@
 #actions #cabecera {
     top: 20px;
     left: 20px;
-    height: 60px;
     z-index: 300;
     overflow: hidden;
+    max-height: 60px;
     position: absolute;
     width: calc(100% - 40px);
     border-radius: 26px 26px;
@@ -372,6 +372,10 @@
 
 #actions #cabecera * {
     cursor: default;
+}
+
+#actions #cabecera > section {
+    height: 60px;
 }
 
 #actions #cabecera #item-photo {
@@ -383,6 +387,7 @@
     box-sizing: border-box;
     border: solid 5px transparent;
     background: rgba( 1, 1, 1, 0.2);
+    border-radius: 26px 0px 0px 26px;
 }
 
 #actions #cabecera #item-photo img {
@@ -418,6 +423,65 @@
     border-radius: 26px 26px;
     color: rgba( 255, 255, 255, 0.7);
     background: rgba( 131, 38, 67, 0.7);
+}
+
+#actions #cabecera #morePE {
+    left: 50%;
+    bottom: 0%;
+    width: 30px; 
+    height: 30px;
+    cursor: pointer;
+    border: solid 0px;
+    position: absolute;
+    border-radius: 50% 50%;
+    transform: translate(-50%, -50%);
+    background: rgba( 1, 1, 1, 0.3);
+}
+
+#actions #cabecera #morePE::before {
+    top: 50%;
+    left: 50%;
+    width: 0px;
+    height: 0px;
+    content: "";
+    position: absolute;
+    transform: translate(-50%, -20%);
+    border: solid 10px rgba(148, 33, 79, 1);
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    border-left-color: transparent;
+}
+
+#actions #cabecera #item-info {
+    top: 70px;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#actions #cabecera #item-info section {
+    width: 50%;
+    margin-right: -3px;
+    padding-bottom: 2px;
+    display: inline-block;
+    border-radius: 4px 4px;
+    background: rgba( 1, 1, 1, 0.2);
+}
+
+#actions #cabecera #item-info section h5 {
+    font-size: 12px;
+    margin-top: 3px;
+    padding-left: 6px;
+    padding-right: 6px;
+    margin-bottom: 2px;
+    box-sizing: border-box;
+    color: rgba( 242, 242, 242, 0.5);
+}
+
+#actions #cabecera #item-info section span {
+    padding-left: 6px;
+    color: rgba( 242, 242, 242, 0.4);
 }
 
 #actions .help {
