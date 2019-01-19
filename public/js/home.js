@@ -1,53 +1,58 @@
-$( function () {
+$(function () {
 	// Abrir Actions
 	var close;
 	var pubExp = false;
-    var actions = $('#actions');
+	var hisExp = false;
+	var actions = $('#actions');
 	var tag_menu = $('#menu button');
-    tag_menu.on('click', function () {
+	tag_menu.on('click', function () {
 		var data_id = $(this).attr('id');
+
 		if (data_id != 'PubExp' || pubExp) {
 			showPanel(this);
+		} else if (data_id != 'HisExp' || hisExp) {
+			showPanel(this);
 		}
-	});
+
+		});
 	function showPanel(th) {
-        var a_panel = '#actions-space > section';
+		var a_panel = '#actions-space > section';
 		var data_panel = $(th).attr('data-panel');
 		var panel = $(a_panel + data_panel);
 		var title = '', text = '';
-        tag_menu.attr('class','');
-		$(th).attr('class','active');
-		$('#pContent').attr('class','blur');
-        actions.addClass('actionsVisible');
-        $(a_panel).css('display','none');
-		panel.css('display','block');
+		tag_menu.attr('class', '');
+		$(th).attr('class', 'active');
+		$('#pContent').attr('class', 'blur');
+		actions.addClass('actionsVisible');
+		$(a_panel).css('display', 'none');
+		panel.css('display', 'block');
 		text = $(th).attr('data-text');
 		for (var i = 0; i < text.length; i++) {
 			title += text[i] + '<br>';
 		}
 		$('#actions #title').html(title);
 	}
-    // Cerrar Actions
-    $('.closeA').on('click', function () {
+	// Cerrar Actions
+	$('.closeA').on('click', function () {
 		closeA();
 	});
-	$(document).on('keyup',function (e) {
-		if (e.keyCode == 27) { 
+	$(document).on('keyup', function (e) {
+		if (e.keyCode == 27) {
 			switch (close) {
 				case '#preview':
-					$(close).css('display','none');
+					$(close).css('display', 'none');
 					close = null;
 					break;
 				default:
-					closeA(); 
+					closeA();
 					break;
 			}
 		}
 	});
 	function closeA() {
-		tag_menu.attr('class','');
-        actions.removeClass('actionsVisible');
-		$('#pContent').attr('class','');
+		tag_menu.attr('class', '');
+		actions.removeClass('actionsVisible');
+		$('#pContent').attr('class', '');
 	}
 	// - - - - - - Abrir Publicar Expedientes - - - - - -
 	$("#BusExpP").on('click', '.carDatos', function () {
@@ -55,8 +60,8 @@ $( function () {
 		var token = $('input[name="csrfmiddlewaretoken"]').val();
 		pubExp = true;
 		$.post('/home/selecciona_empleado/', {
-			id : id,
-			'csrfmiddlewaretoken' : token
+			id: id,
+			'csrfmiddlewaretoken': token
 		}, function (response) {
 			var id = response.id,
 				nombre = response.nombre,
@@ -73,8 +78,8 @@ $( function () {
 	});
 	$("#morePE").on('click', function () {
 		$('#cabecera').css({
-			'overflow':'inherit',
-			'min-height':'60px'
+			'overflow': 'inherit',
+			'min-height': '60px'
 		});
 	});
 	// - - - - - - Evento de movimiento - - - - - -
@@ -100,11 +105,11 @@ $( function () {
 		var img = $(document.createElement('img'));
 		img.attr('src', $(this).attr('src'));
 		$('#preview').append(img);
-		$('#preview').css('display','flex');
+		$('#preview').css('display', 'flex');
 	});
 	$('#preview').on('click', function (e) {
-		if($(e.target).prop("tagName") != 'IMG') {
-			$('#preview').css('display','none');
+		if ($(e.target).prop("tagName") != 'IMG') {
+			$('#preview').css('display', 'none');
 		}
 	});
 	$('#preview').on('click', 'img', function () {
@@ -116,6 +121,16 @@ $( function () {
 		}
 	});
 	$('.help button').on('click', function () {
-		$(this).parent().css('display','none');
+		$(this).parent().css('display', 'none');
+	});
+
+	// Abrir Historial de Expedientes
+	$("#HisExpP").on('click', function () {
+		hisExp = true;
+		showPanel($('#HisExp'));
+	});
+	$('#cancelPE').on('click', function () {
+		hisExp = false;
+		showPanel($('#HisExp'));
 	});
 });

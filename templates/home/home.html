@@ -43,7 +43,7 @@
                     Cargar Expediente
                 </span>
             </button>
-            <button id="HisP"  data-text="Historial" data-panel="#HisP">
+            <button id="HisExp"  data-text="Historial" data-panel="#HisExpP" class="<!--active-->">
                 <img src="{% static 'img/icons/clock.png' %}" alt="">
                 <span>
                     Historial
@@ -123,6 +123,7 @@
 
             {% include 'home/partials/BusExpP.html' %}
             {% include 'home/partials/CarExpP.html' %}
+            {% include 'home/partials/HisExpP.html' %}
 
         </section>
     </section>
