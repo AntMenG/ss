@@ -520,30 +520,53 @@
     box-sizing: border-box;
 }
 
-#actions #PubSpace #PubWrapper .seleccionar{
-    position: absolute;
-    padding: 30px 60px;
-    border-radius: 8px 8px;
-    color: rgba( 255, 255, 255, 0.4);
-    background: rgba(148, 33, 79, 0.6);
-}
-#actions #PubSpace #PubWrapper .seleccionar:hover{
-    color: rgba( 255, 255, 255, 0.4);
-    background: rgba(148, 33, 79, 0.884);
-}
-
-#actions #PubSpace #PubWrapper .subir{
-    padding: 150px 200px;
-    color:#fff;
-    border:0px solid #fff;
-}
-
 #actions #PubSpace #PubWrapper {
     margin-left: 20px;
     position: relative;
+    text-align: center;
     margin-bottom: 20px;
     width: calc(100% - 40px);
     height: calc(100% - 20px);
+}
+
+#actions #PubSpace #PubWrapper .upload-area {
+    height: 50px;
+    display: flex;
+    overflow: auto;
+    margin: 0 auto;
+    border-radius: 3px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% - 40px);
+    background: rgba(148, 33, 79, 0.6);
+}
+
+#actions #PubSpace #PubWrapper .upload-area:hover {
+    cursor: pointer;
+}
+
+#actions #PubSpace #PubWrapper .upload-area h1 {
+    margin: 0 0;
+    text-align: center;
+    text-transform: uppercase;
+    color: rgba( 255, 255, 255, 0.4);
+    font-family: 'Montserrat', sans-serif;
+}
+
+#actions #PubSpace #PubWrapper .send_button {
+    height: 30px;
+    color: #94214f;
+    font-weight: bold;
+    margin: auto auto;
+    margin-top: 20px;
+    border: solid 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 4px 4px;
+    text-transform: uppercase;
+    background: rgb( 242, 242, 242);
+    box-shadow: 4px 4px 6px rgb( 74, 18, 36);
 }
 
 #actions #PubView {

@@ -58,12 +58,14 @@ $( function () {
 			id : id,
 			'csrfmiddlewaretoken' : token
 		}, function (response) {
-			var nombre = response.nombre,
+			var id = response.id,
+				nombre = response.nombre,
 				apellidos = response.apellidos,
 				item_name = $('#cabecera #item-name');
 			item_name.text(nombre + ' ' + apellidos);
+			$('input[name="empleado_id"]').val(id);
+			showPanel($('#PubExp'));
 		});
-		showPanel($('#PubExp'));
 	});
 	$('#cancelPE').on('click', function () {
 		pubExp = false;

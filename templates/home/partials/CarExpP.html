@@ -1,4 +1,5 @@
 {% load staticfiles %}
+<script src="{% static 'js/cargar_expediente.js' %}"></script>
 
 <section id="CarExpP">
     <section id="cabecera">
@@ -14,24 +15,23 @@
     <section id="PubSpace">
 
         <section class="help">
-            Crea tu interfaz debajo :D
+            Arrastra archivos a la caja de abajo o da click para seleccionarlos
             <button>OK</button>
         </section>
 
         <!-- Todo tu html aqui -->
 
         <section id="PubWrapper">
-            <form action="/home/cargar_expediente/" method="POST" enctype="multipart/form-data">
+            <form id="cargar_expediente" 
+                action="/home/cargar_expediente/" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
-                <label for="file-upload" class="seleccionar">
-                    Seleccionar archivo
-                </label>
-                <input id="file-upload" type="file" multiple style='display: none;' name="document" />
-                <label for="button-upload" class="subir"></label>
-                <button id="button-upload" type="submit">Cargar archivo</button>
+                <input type="hidden" name="empleado_id">
+                <input id="file-upload" type="file" multiple style='display: none;' name="document" accept="image/x-png,image/jpeg" />
+                <div class="upload-area"  id="uploadfile">
+                    <h1>Arrastra archivos aquí</h1>
+                </div>
+                <button id="button-upload" class="send_button" type="submit">Cargar Expediente</button>
             </form>
-
-
         </section>
     </section>
 

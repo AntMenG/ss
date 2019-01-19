@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
 from django.core.files.storage import FileSystemStorage
 from apps.home.models import Empleado, Archivo
+#fs=FileSystemStorage()
+#fs.save(f.name, f)
 
 # Create your views here.
 def home (request):
@@ -34,26 +36,39 @@ def selecciona_empleado (request):
 
 def cargar_expediente (request):
     if request.method == 'POST':
-        c_type = ['image/png','image/jpeg']
-        try:
+        empleado = Empleado.objects.get(
+            id = request.POST.get('empleado_id')
+        )
+        if empleado:
+            c_type = ['image/png','image/jpeg']
             files = request.FILES.getlist('document')
-            for f in files:
-                if f.content_type in c_type:
-                    fs=FileSystemStorage()
-                    fs.save(f.name, f)
-                    print(f.name)
-                    print(f.size)
-                    print(f.content_type)
-                else:
-                    print('Archivo no admitido')
-            return JsonResponse({
-                'status' : 'done',
-                'text' : 'Correcto'
-            })
-        except:
+            if files:
+                done = 0
+                err = 0
+                for f in files:
+                    if f.content_type in c_type:
+                        try:
+                            archivo = Archivo(
+                                tipo = 'Desconocido',
+                                size = str(f.size),
+                                document = f,
+                                empleado_id = empleado.id
+                            )
+                            archivo.save()
+                            done += 1
+                        except:
+                            err += 1
+                            print('Error en bd')
+                    else:
+                        print('Archivo no admitido')
+                return JsonResponse({
+                    'status' : 'done',
+                    'text' : 'Finalizado: ' + str(done) + ' correctos ' + str(err) + ' incorrectos'
+                })
+        else:
             return JsonResponse({
                 'status' : 'err',
-                'text' : 'Debes enviar archivos'
+                'text' : 'El empleado no existe'
             })
     elif request.method == 'GET':
         return redirect('home')
