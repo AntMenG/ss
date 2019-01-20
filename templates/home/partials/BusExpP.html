@@ -8,17 +8,7 @@
     </div>
     
     <div id="find">
-
-        <script>
-            $(function () {
-                var targets = $('.target .e-status');
-                targets.each(function (target) {
-                    if ((target + 1) % 4 == 0) {
-                        $(this).removeClass('true');
-                    }
-                });
-            });
-        </script>
+        
         {% csrf_token %}
         {% for empleado in empleados %}
         <div class="target">
@@ -26,7 +16,7 @@
                 <div class="photo">
                     <img src="/media/photo/{{ empleado.id }}.jpg">
                 </div>
-                <div class="e-status true">
+                <div class="e-status {% if empleado.expediente %} true {% endif %}">
                     <div class="text">Expediente</div>
                     <div class="ico"></div>
                 </div>

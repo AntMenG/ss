@@ -619,6 +619,12 @@
     box-shadow: 4px 4px 6px rgb( 74, 18, 36);
 }
 
+#actions #PubSpace #PubWrapper #ordenar-expediente {
+    right: 0px;
+    bottom: 0px;
+    position: absolute;
+}
+
 #actions #PubView {
     top: 0px;
     left: 0px;

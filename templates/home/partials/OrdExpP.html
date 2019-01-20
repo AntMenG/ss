@@ -1,4 +1,5 @@
 {% load staticfiles %}
+<script src="{% static 'js/ordenar_expediente.js' %}"></script>
 
 <section id="OrdExpP">
     <section id="cabecera">
@@ -23,8 +24,8 @@
     <section id="PubSpace">
         
         <section class="help">
-            Arrastra las imágenes de la izquierda a la casilla que correspondan.
-            También puedes dar doble click a las imagenes para maximizarlas
+            <span>Arrastra las imágenes de la izquierda a la casilla que correspondan.
+            También puedes dar doble click a las imagenes para maximizarlas</span>
             <button>OK</button>
         </section>
         
@@ -40,45 +41,46 @@
                     </form>
                     -->
                 </span>
-                <div id="pub-space" class="drag_zone">
-                    <img id="i1" draggable="true" src="http://semanariolaguna.com/wp-content/uploads/2018/01/ACTA-800x1024.jpg" alt="">
-                    <img id="i2" draggable="true" src="https://staticz.womenalia.com/images/avatar/blogs/post/8468/el-curp-y-sun-funcion_1520351457.png" alt="">
-                    <img id="i3" draggable="true" src="https://image.slidesharecdn.com/cargaacademicaintensivos2013prod-130729130359-phpapp02/95/carga-academica-intensivos-2013-prod-1-638.jpg" alt="">
+                <div id="pub-space" class="drag_zone" data-tipo="Desconocido">
+                    <!--
+                    <img id="i1" draggable="true" src="" alt="">
+                    -->
                 </div>
             </section>
             
             <section id="PubFolders">
                 <div class="folder">
                     <span>Acta de Nacimiento</span>
-                    <section class="drag drag_zone">
+                    <section class="drag drag_zone" data-tipo="Acta_de_Nacimiento">
         
                     </section>
                 </div>
                 <div class="folder">
                     <span>CURP</span>
-                    <section class="drag drag_zone">
+                    <section class="drag drag_zone" data-tipo="CURP">
         
                     </section>
                 </div>
                 <div class="folder">
                     <span>Académico</span>
-                    <section class="drag drag_zone">
+                    <section class="drag drag_zone" data-tipo="Academico">
         
                     </section>
                 </div>
                 <div class="folder">
                     <span>FOMOPES</span>
-                    <section class="drag drag_zone">
+                    <section class="drag drag_zone" data-tipo="FOMOPES">
         
                     </section>
                 </div>
                 <div class="folder">
                     <span>Otros</span>
-                    <section class="drag drag_zone">
+                    <section class="drag drag_zone" data-tipo="Otros">
         
                     </section>
                 </div>
             </section>
+            <button id="ordenar-expediente" class="send_button" type="submit">Ordenar Expediente</button>
         </section>
     </section>
 

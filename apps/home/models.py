@@ -8,6 +8,7 @@ class Empleado(models.Model):
     telefono = models.CharField(max_length=12)
     curp = models.CharField(max_length=20)
     rfc = models.CharField(max_length=20)
+    expediente = models.BooleanField(default=False)
     objects = models.Manager()
 
     def __str__(self):

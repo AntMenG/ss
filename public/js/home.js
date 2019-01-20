@@ -56,6 +56,7 @@ $(function () {
 	$("#BusExpP").on('click', '.carDatos', function () {
 		var id = $(this).attr('data-id');
 		var token = $('input[name="csrfmiddlewaretoken"]').val();
+		var action = $(this).text();
 		pubExp = true;
 		$.post('/home/selecciona_empleado/', {
 			id: id,
@@ -86,10 +87,39 @@ $(function () {
 					$('#item-info').append(section);
 				}
 			}
+			if (action == "ORDENAR EXPEDIENTE") {
+				buscar_expediente(id, token);
+			}
 			$('input[name="empleado_id"]').val(id);
 			showPanel($('#PubExp'));
 		});
 	});
+	// Buscamos en la base de datos el expediente
+	function buscar_expediente (id, token) {
+		$('#OrdExpP #PubWrapper .drag_zone').html('');
+		$.post('/home/buscar_expediente/', {
+			id: id,
+			'csrfmiddlewaretoken': token
+		}, function (response) {
+			if (response.status == 'done') {
+				var expedientes = response.data;
+				for (var i = 0; i < expedientes.length; i++) {
+					var img = $(document.createElement('img'));
+					img.attr({
+						'id' : 'i' + expedientes[i]['id'],
+						'src' : '/media/' + expedientes[i]['document'],
+						'data-empleado' : expedientes[i]['empleado_id']
+					});
+					$('#OrdExpP #PubWrapper .drag_zone[data-tipo="' + 
+						expedientes[i]['tipo'] + 
+					'"]').append(img);
+				}
+			} else {
+
+			}
+			$('#OrdExpP .help span').text(response.text);
+		});
+	}
 	$('#cancelPE').on('click', function () {
 		pubExp = false;
 		$('#BusExp').click();
@@ -120,14 +150,6 @@ $(function () {
 			$(this).parent().append(drag);
 		}
 	});
-	$('.preview-area').on('dblclick', 'img', function () {
-		close = '#preview';
-		$('#preview').html('');
-		var img = $(document.createElement('img'));
-		img.attr('src', $(this).attr('src'));
-		$('#preview').append(img);
-		$('#preview').css('display', 'flex');
-	});
 	drag_zone.on('dblclick', 'img', function () {
 		close = '#preview';
 		$('#preview').html('');
@@ -140,6 +162,14 @@ $(function () {
 		if ($(e.target).prop("tagName") != 'IMG') {
 			$('#preview').css('display', 'none');
 		}
+	});
+	$('.preview-area').on('dblclick', 'img', function () {
+		close = '#preview';
+		$('#preview').html('');
+		var img = $(document.createElement('img'));
+		img.attr('src', $(this).attr('src'));
+		$('#preview').append(img);
+		$('#preview').css('display', 'flex');
 	});
 	$('#preview').on('click', 'img', function () {
 		var img = $(this);
