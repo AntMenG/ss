@@ -185,10 +185,10 @@
 
 <div id="pLogin">
     <img src="{% static 'img/logos/SALUD_HOTIZONTAL_FCFT.png' %}" alt="">
-    <form id="login" action="/login" method="POST">
+    <form id="login" method="POST">
+        {% csrf_token %}
         <h2>SISTEMA DE EXPEDIENTES</h2>
-        <input type="text" name="user" placeholder="Ingresa tu Usuario">
-        <input type="password" name="password" placeholder="Ingresa tu Contraseña">
+        {{ form }}
         <input type="submit" value="INGRESAR">
     </form>
 </div>
