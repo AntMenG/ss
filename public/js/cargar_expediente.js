@@ -24,20 +24,38 @@ $(function () {
         e.stopPropagation();
         e.preventDefault();
         $("h1").text("¡Listo para subir!");
+        $('.preview-area').html('');
+        $('.preview-area').css('display','none');
 		var file = e.originalEvent.dataTransfer.files;
+        if (file.length) {
+            preview(file);
+        }
+    });
+    var preview = function(files) {
 		form_expediente = new FormData();
-		form_expediente.append(
-			"csrfmiddlewaretoken", 
+        form_expediente.append(
+            "csrfmiddlewaretoken", 
             $('input[name="csrfmiddlewaretoken"]').val()
         );
-		form_expediente.append(
-			"empleado_id", 
+        form_expediente.append(
+            "empleado_id", 
             $('input[name="empleado_id"]').val()
         );
-		for (var i = 0; i < file.length; i++) {
-			form_expediente.append('document', file[i]);
+		for(var i = 0, ii = files.length; i < ii; i++) {
+			if (files[i].type.match(/image.*/) && typeof FileReader == 'function') {
+				var reader = new FileReader();
+				reader.onload = function(e) {
+					var img = document.createElement('img');
+					img.src = e.target.result;
+					img.width = 200;
+					$('.preview-area').append(img);
+				}
+				reader.readAsDataURL(files[i]);
+                $('.preview-area').css('display','block');
+            }
+            form_expediente.append('document', files[i]);
 		}
-	});
+	};
     // Abrir input file al dar click
     $("#uploadfile").click(function(){
         $("#file-upload").click();
@@ -45,9 +63,13 @@ $(function () {
     // Agregando archivos desde input file
     $("#file-upload").change(function(){
 		event.preventDefault();
+        if (this.files) {
+            preview(this.files);
+        }
+        $('.preview-area').html('');
         $("h1").text("¡Listo para subir!");
         var form = $('#cargar_expediente')[0];
-		form_expediente = new FormData(form);
+        form_expediente = new FormData(form);
     });
     // Enviando formulario
 	$("#button-upload").click(function (event) {
@@ -78,6 +100,14 @@ $(function () {
             alert("Debes enviar archivos");
         }
         form_expediente = null;
+        $('.preview-area').css('display','none');
+        $('.preview-area').html('');
         $("h1").text("Arrastra archivos aquí o da click para seleccionarlos");
-    }); 
+    });     
+	$('#cancelPE').on('click', function () {
+        form_expediente = null;
+        $('.preview-area').css('display','none');
+        $('.preview-area').html('');
+        $("h1").text("Arrastra archivos aquí o da click para seleccionarlos");
+	});
 });

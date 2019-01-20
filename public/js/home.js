@@ -99,6 +99,14 @@ $(function () {
 			$(this).parent().append(drag);
 		}
 	});
+	$('.preview-area').on('dblclick', 'img', function () {
+		close = '#preview';
+		$('#preview').html('');
+		var img = $(document.createElement('img'));
+		img.attr('src', $(this).attr('src'));
+		$('#preview').append(img);
+		$('#preview').css('display', 'flex');
+	});
 	drag_zone.on('dblclick', 'img', function () {
 		close = '#preview';
 		$('#preview').html('');

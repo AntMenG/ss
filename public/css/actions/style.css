@@ -537,6 +537,12 @@
     height: calc(100% - 20px);
 }
 
+#cargar_expediente {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
 #actions #PubSpace #PubWrapper .upload-area {
     height: 50px;
     display: flex;
@@ -548,6 +554,30 @@
     justify-content: center;
     width: calc(100% - 40px);
     background: rgba(148, 33, 79, 0.6);
+}
+
+#actions #PubSpace #PubWrapper .preview-area {
+    display: none;
+    overflow: auto;
+    margin: 0 auto;
+    margin-top: 20px;
+    position: relative;
+    border-radius: 3px;
+    text-align: center;
+    align-items: center;
+    padding-bottom: 10px;
+    justify-content: center;
+    max-width: calc(100% - 40px);
+    max-height: calc(100% - 120px);
+    background: rgba( 1, 1, 1, 0.3);
+}
+
+#actions #PubSpace #PubWrapper .preview-area img {
+    width: 10%;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: -4px;
 }
 
 #actions #PubSpace #PubWrapper .upload-area:hover {
