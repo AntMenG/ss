@@ -7,3 +7,7 @@
     left: 50px;
     width: calc(100% - 50px);
 }
+
+#actions #cabecera #item-info section {
+    width: calc(50% - 20px);
+}

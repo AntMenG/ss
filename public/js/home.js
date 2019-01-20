@@ -68,6 +68,24 @@ $(function () {
 				item_photo = $('#cabecera #item-photo img');
 			item_name.text(nombre + ' ' + apellidos);
 			item_photo.attr('src','/media/photo/' + id + '.jpg');
+			var ignore = ['id','nombre','apellidos']
+			$('#item-info').html('');
+			for (var key in response) {
+				if (
+					key === ignore[0] || 
+					key === ignore[1] || 
+					key === ignore[2]
+				) {	} else {
+					var section = $(document.createElement('section'));
+					var h5 = $(document.createElement('h5'));
+					var span = $(document.createElement('span'));
+					h5.text(key.toUpperCase());
+					span.text(response[key]);
+					section.append(h5);
+					section.append(span);
+					$('#item-info').append(section);
+				}
+			}
 			$('input[name="empleado_id"]').val(id);
 			showPanel($('#PubExp'));
 		});
@@ -77,10 +95,13 @@ $(function () {
 		$('#BusExp').click();
 	});
 	$("#morePE").on('click', function () {
-		$('#cabecera').css({
-			'overflow': 'inherit',
-			'min-height': '60px'
-		});
+		if ($(this).hasClass('active')) {
+			$(this).removeClass('active');
+			$('#cabecera').removeClass('active');
+		} else {
+			$(this).addClass('active');
+			$('#cabecera').addClass('active');
+		}
 	});
 	// - - - - - - Evento de movimiento - - - - - -
 	var drag = '';
