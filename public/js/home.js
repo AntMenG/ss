@@ -64,8 +64,10 @@ $(function () {
 			var id = response.id,
 				nombre = response.nombre,
 				apellidos = response.apellidos,
-				item_name = $('#cabecera #item-name');
+				item_name = $('#cabecera #item-name'),
+				item_photo = $('#cabecera #item-photo img');
 			item_name.text(nombre + ' ' + apellidos);
+			item_photo.attr('src','/media/photo/' + id + '.jpg');
 			$('input[name="empleado_id"]').val(id);
 			showPanel($('#PubExp'));
 		});

@@ -52,11 +52,11 @@ $(function () {
     // Enviando formulario
 	$("#button-upload").click(function (event) {
         event.preventDefault();
-        form_expediente.set(
-            'empleado_id', 
-            $('input[name="empleado_id"]').val()
-        );
         if (form_expediente) {
+            form_expediente.set(
+                'empleado_id', 
+                $('input[name="empleado_id"]').val()
+            );
             $.ajax({
                 type: "POST",
                 enctype: 'multipart/form-data',
@@ -78,6 +78,6 @@ $(function () {
             alert("Debes enviar archivos");
         }
         form_expediente = null;
-        $("h1").text("Arrastra archivos a la caja de abajo o da click para seleccionarlos");
+        $("h1").text("Arrastra archivos aquí o da click para seleccionarlos");
     }); 
 });
