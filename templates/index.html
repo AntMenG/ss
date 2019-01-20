@@ -188,7 +188,9 @@
     <form id="login" method="POST">
         {% csrf_token %}
         <h2>SISTEMA DE EXPEDIENTES</h2>
-        {{ form }}
+        <!--{ form }-->
+        <input type="text" name="username" placeholder="Ingresa tu Usuario" autofocus="" required="" id="id_username">
+        <input type="password" name="password" placeholder="Ingresa tu Contraseña" required="" id="id_password">
         <input type="submit" value="INGRESAR">
     </form>
 </div>

@@ -18,6 +18,7 @@ def home (request):
     }
     return render(request, 'home/home.html', context)
 
+@login_required
 def cesp (request):
     empleado = Empleado.objects.all().order_by('id')
     context = {
