@@ -11,7 +11,7 @@
         
         {% csrf_token %}
         {% for empleado in empleados %}
-        <div class="target">
+        <div class="target" data-empleado="{{ empleado.id }}">
             <div class="item-left">
                 <div class="photo">
                     <img src="/media/photo/{{ empleado.id }}.jpg">

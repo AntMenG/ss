@@ -46,6 +46,11 @@ def cargar_expediente (request):
                         'status' : 'done',
                         'text' : 'Finalizado: ' + str(done) + ' correctos ' + str(err) + ' incorrectos'
                     })
+            else:
+                return JsonResponse({
+                    'status' : 'err',
+                    'text' : 'Debes enviar archivos'
+                })
         else:
             return JsonResponse({
                 'status' : 'err',
@@ -75,6 +80,49 @@ def buscar_expediente (request):
             return JsonResponse({
                 'status' : 'err',
                 'text' : 'El empleado no tiene expediente'
+            })
+    elif request.method == 'GET':
+        return redirect('home')
+
+def ordenar_expediente (request):
+    if request.method == 'POST':
+        done = 0
+        error = 0
+        data = request.POST
+        longitud = int(data.get('len'))
+        for i in range(0,longitud):
+            index = 'data[' + str(i) + ']'
+            archivo_id = data.get(index + '[id]')
+            empleado_id = data.get(index + '[empleado_id]')
+            tipo = data.get(index + '[tipo]')
+            try:
+                update = Archivo.objects.get(
+                    id = archivo_id,
+                    empleado_id = empleado_id
+                )
+                if update:
+                    update.tipo = tipo
+                    update.save()
+                    done += 1
+                else:
+                    error += 1
+            except:
+                print('Error en base de datos')
+                error += 1
+        if done > 0 and error == 0:
+            return JsonResponse({
+                'status' : 'done',
+                'text' : 'Expediente ordenado con éxito'
+            })
+        elif done > 0 and error > 0:
+            return JsonResponse({
+                'status' : 'err',
+                'text' : 'Proceso con ' + str(error) + 'error/es'
+            })
+        else:
+            return JsonResponse({
+                'status' : 'err',
+                'text' : 'Error al ordenar'
             })
     elif request.method == 'GET':
         return redirect('home')

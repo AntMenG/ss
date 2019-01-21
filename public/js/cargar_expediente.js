@@ -74,10 +74,11 @@ $(function () {
     // Enviando formulario
 	$("#button-upload").click(function (event) {
         event.preventDefault();
+        var empleado_id = $('input[name="empleado_id"]').val();
         if (form_expediente) {
             form_expediente.set(
                 'empleado_id', 
-                $('input[name="empleado_id"]').val()
+                empleado_id
             );
             $.ajax({
                 type: "POST",
@@ -88,8 +89,13 @@ $(function () {
                 contentType: false,
                 cache: false,
                 timeout: 600000,
-                success: function (data) {
-                    alert(JSON.stringify(data));
+                success: function (response) {
+                    alert(JSON.stringify(response));
+                    if (response.status == "done") {
+                        $('.target[data-empleado="' + empleado_id + '"] .e-status')
+                        .addClass('true');
+                        $('#cancelPE').click();
+                    }
                     $("#button-upload").prop("disabled", false);
                 },
                 error: function (e) {
