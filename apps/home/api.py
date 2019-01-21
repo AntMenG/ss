@@ -2,7 +2,7 @@ from django.shortcuts import redirect
 from django.http import HttpResponse, JsonResponse
 from apps.home.models import Empleado, Archivo
 
-def selecciona_empleado (request):
+def _selecciona_empleado (request):
     if request.method == 'POST':
         data = request.POST.copy()
         results = Empleado.objects.filter(
@@ -12,7 +12,7 @@ def selecciona_empleado (request):
     elif request.method == 'GET':
         return redirect('home')
 
-def cargar_expediente (request):
+def _cargar_expediente (request):
     if request.method == 'POST':
         empleado = Empleado.objects.get(
             id = request.POST.get('empleado_id')
@@ -59,7 +59,7 @@ def cargar_expediente (request):
     elif request.method == 'GET':
         return redirect('home')
 
-def buscar_expediente (request):
+def _buscar_expediente (request):
     if request.method == 'POST':
         result = []
         expediente = Archivo.objects.filter(
@@ -84,7 +84,7 @@ def buscar_expediente (request):
     elif request.method == 'GET':
         return redirect('home')
 
-def ordenar_expediente (request):
+def _ordenar_expediente (request):
     if request.method == 'POST':
         done = 0
         error = 0

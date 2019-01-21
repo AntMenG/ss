@@ -108,7 +108,8 @@ $(function () {
 					img.attr({
 						'id' : 'i' + expedientes[i]['id'],
 						'src' : '/media/' + expedientes[i]['document'],
-						'data-empleado' : expedientes[i]['empleado_id']
+						'data-empleado' : expedientes[i]['empleado_id'],
+						'data-tipo' : expedientes[i]['tipo']
 					});
 					$('#OrdExpP #PubWrapper .drag_zone[data-tipo="' + 
 						expedientes[i]['tipo'] + 
