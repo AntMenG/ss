@@ -25,10 +25,12 @@
                 Jessica Hernández
                 <span>HEGJ951218NNR00</span>
             </section>
-            <button>
-                <img src="{% static 'img/icons/power.png' %}" alt="">
-                <span>SALIR</span>
-            </button>
+            <a href="{% url 'logout' %}">
+                <button>
+                    <img src="{% static 'img/icons/power.png' %}" alt="">
+                    <span>SALIR</span>
+                </button>
+            </a>
         </section>
         <section id="menu">
             <button id="BusExp" data-text="Buscar Expediente" data-panel="#BusExpP" class="<!--active-->">
